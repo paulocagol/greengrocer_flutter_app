@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_app/item_tile.dart';
 
 import 'app_data.dart' as app_data;
 import 'category_tile.dart';
@@ -103,7 +104,9 @@ class _HomeTabState extends State<HomeTab> {
               ),
               itemCount: app_data.items.length,
               itemBuilder: (context, index) {
-                return Container(color: Colors.red);
+                return ItemTile(
+                  item: app_data.items[index],
+                );
               },
             ),
           )
