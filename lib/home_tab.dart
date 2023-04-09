@@ -1,21 +1,16 @@
 import 'package:flutter/material.dart';
 
+import 'app_data.dart' as app_data;
 import 'category_tile.dart';
 
 class HomeTab extends StatefulWidget {
-  HomeTab({super.key});
+  const HomeTab({super.key});
 
   @override
   State<HomeTab> createState() => _HomeTabState();
 }
 
 class _HomeTabState extends State<HomeTab> {
-  List<String> categories = [
-    'Legumes',
-    'Frutas',
-    'Doces',
-  ];
-
   String categorySelected = 'Legumes';
 
   @override
@@ -82,11 +77,11 @@ class _HomeTabState extends State<HomeTab> {
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (context, index) {
                   return CategoryTile(
-                    category: categories[index],
-                    isSelected: categories[index] == categorySelected,
+                    category: app_data.categories[index],
+                    isSelected: app_data.categories[index] == categorySelected,
                     onPressed: () {
                       setState(() {
-                        categorySelected = categories[index];
+                        categorySelected = app_data.categories[index];
                       });
                     },
                   );
@@ -94,7 +89,23 @@ class _HomeTabState extends State<HomeTab> {
                 separatorBuilder: (context, index) {
                   return SizedBox(width: 10);
                 },
-                itemCount: categories.length),
+                itemCount: app_data.categories.length),
+          ),
+          Expanded(
+            child: GridView.builder(
+              padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
+              physics: const BouncingScrollPhysics(),
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                mainAxisSpacing: 10,
+                crossAxisSpacing: 10,
+                childAspectRatio: 9 / 11.5,
+              ),
+              itemCount: app_data.items.length,
+              itemBuilder: (context, index) {
+                return Container(color: Colors.red);
+              },
+            ),
           )
         ],
       ),

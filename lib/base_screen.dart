@@ -20,7 +20,7 @@ class _BaseScreenState extends State<BaseScreen> {
         physics: const NeverScrollableScrollPhysics(),
         controller: pageController,
         children: [
-          HomeTab(),
+          const HomeTab(),
           Container(color: Colors.red),
           Container(color: Colors.blue),
           Container(color: Colors.green),
@@ -38,15 +38,23 @@ class _BaseScreenState extends State<BaseScreen> {
         backgroundColor: Colors.green,
         selectedItemColor: Colors.white,
         unselectedItemColor: Colors.white.withAlpha(100),
-        items: [
+        items: const [
           BottomNavigationBarItem(
-              icon: Icon(Icons.home_outlined), label: 'Home'),
+            icon: Icon(Icons.home_outlined),
+            label: 'Home',
+          ),
           BottomNavigationBarItem(
-              icon: Icon(Icons.shop_2_outlined), label: 'Carinho'),
+            icon: Icon(Icons.shop_2_outlined),
+            label: 'Carinho',
+          ),
           BottomNavigationBarItem(
-              icon: Icon(Icons.list_alt_outlined), label: 'Pedidos'),
+            icon: Icon(Icons.list_alt_outlined),
+            label: 'Pedidos',
+          ),
           BottomNavigationBarItem(
-              icon: Icon(Icons.person_off_outlined), label: 'Perfil'),
+            icon: Icon(Icons.person_off_outlined),
+            label: 'Perfil',
+          ),
         ],
       ),
     );
